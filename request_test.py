@@ -1,10 +1,12 @@
 import requests,json
+from time import sleep
 
 class Movie:
-
     
-    def busca_filme(self,chave, titulo):
-        
+    def busca_filme(self):
+        chave = '7db9f6c4'
+        titulo = input('Digite seu Filme: ')
+
         response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,titulo)).json() 
         print('--' * 94)
         print('Título: ', response['Title'])
@@ -29,45 +31,42 @@ class Movie:
             'Status': 'Pendente'
         }
         lista = [dicionario]
-        escolha = int(input('É esse filme que deseja adicionar a lista de desejos?\n1-Sim\n2-Não\n'))
+        sleep(1)
+        escolha = int(input('É esse filme que deseja adicionar a lista de desejos?\n1-Sim\n2-Não\n>>> '))
         
         
 
         if escolha == 1:
             flag = True
-
+            
             try:
                 with open('wishlist.json') as arquivo:
-                    json.load(arquivo)
+                    desejo = json.load(arquivo)
                 
-                if lista[0]['Titulo'] == arquivo[0]['Titulo']:
-                    print('Esse título já existe na sua lista de desejo')
-                    flag = False
+                if lista[0]['Titulo'] == desejo[0]['Titulo']:
+                    print('Esse filme já existe na sua lista de desejo')
+
 
                 else:
+                    print()
                     with open('wishlist.json', 'a') as lista_desejos:
                         json.dump(lista, lista_desejos, indent=4)
 
-                        print('Filme adicionado a sua lista de desejos com sucesso!')
+                        print('O filme foi adicionado a sua lista de desejos com sucesso!')
             
             except FileNotFoundError:
                 if flag:
                     with open('wishlist.json', 'w') as lista_desejos:
                         json.dump(lista, lista_desejos, indent=4)
 
-                        print('Filme adicionado a sua lista de desejos com sucesso!')
+                        print('O filme foi adicionado a sua lista de desejos com sucesso!')
 
         if escolha == 2:
-            print('Voltando para o menu')
-        
-        #print(json.dumps(lista, indent=4))
+            print('Voltando para o menu...')
+            
 
     #def deletar_filme(self):
 
 
-if __name__ == "__main__":   #controle de escopo de execução: serve para que um código não execute se estiver sendo apenas importado.
-    movie = Movie()
-    key = '7db9f6c4'
-    title = input('Digite seu Filme: ')
-    movie.busca_filme(key,title)
+
     #print(response['Ratings'][2]['Value'])
