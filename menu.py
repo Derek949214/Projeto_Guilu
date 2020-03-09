@@ -2,8 +2,6 @@ from request_test import Movie
 
 
 class Menu:
-    def __init__(self):
-        pass
     
     def escolhas(self, escolha):
         
@@ -13,6 +11,15 @@ class Menu:
             menu = Movie()
             menu.busca_filme()
 
+            filme = Menu()
+            filme.pedidos()
+
+        if escolha == 2:
+            menu = Movie()
+            menu.deletar_filme()
+
+            filme = Menu()
+            filme.pedidos()
         if escolha == 4:
             return 0
    
@@ -24,8 +31,8 @@ class Menu:
         print('\tMENU')
         print('--' * 94)
         print('1-Buscar Filmes')
-        print('2-Alterar Filme')
-        print('3-Remover Filme')
+        print('2-Remover Filme')
+        print('3-Alterar Filme')
         print('4-Sair')
 
         escolha = int(input('>>> '))
