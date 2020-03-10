@@ -16,12 +16,24 @@ class Menu:
 
         if escolha == 2:
             menu = Movie()
+            menu.mudar()
+
+            filme = Menu()
+            filme.pedidos()
+
+        if escolha == 3:
+            menu = Movie()
             menu.deletar_filme()
 
             filme = Menu()
             filme.pedidos()
+
         if escolha == 4:
-            return 0
+            menu = Movie()
+            menu.listar()
+
+            filme = Menu()
+            filme.pedidos()
    
             
 
@@ -31,9 +43,9 @@ class Menu:
         print('\tMENU')
         print('--' * 94)
         print('1-Buscar Filmes')
-        print('2-Remover Filme')
-        print('3-Alterar Filme')
-        print('4-Sair')
+        print('2-Alterar Filme')
+        print('3-Remover Filme')
+        print('4-Para ver a lista de desejos')
 
         escolha = int(input('>>> '))
         menu.escolhas(escolha)

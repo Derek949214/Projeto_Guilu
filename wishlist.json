@@ -1,13 +1,35 @@
 [
     {
-        "Titulo": "Kid Bengala",
-        "Ano": "2007",
-        "Tempo": "N/A",
-        "Genero": "Adult",
-        "Diretor": "M. Max",
-        "Escritor": "N/A",
-        "Atores": "Kid Bengala, Bruna Ferraz, Patricia Mayer, Melissa Pitanga",
-        "Pais": "Brazil",
-        "Status": "Pendente"
+        "Titulo": "1",
+        "Ano": "2013",
+        "Tempo": "112 min",
+        "Genero": "Documentary, History, Sport",
+        "Diretor": "Paul Crowder",
+        "Escritor": "Mark Monroe",
+        "Atores": "Michael Fassbender, Lewis Hamilton, Niki Lauda, Michael Schumacher",
+        "Pais": "USA",
+        "Status": "Assistir mais tarde"
+    },
+    {
+        "Titulo": "Up",
+        "Ano": "2009",
+        "Tempo": "96 min",
+        "Genero": "Animation, Adventure, Comedy, Family",
+        "Diretor": "Pete Docter, Bob Peterson(co-director)",
+        "Escritor": "Pete Docter (story by), Bob Peterson (story by), Tom McCarthy (story by), Bob Peterson (screenplay by), Pete Docter (screenplay by)",
+        "Atores": "Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson",
+        "Pais": "USA",
+        "Status": "Assistido"
+    },
+    {
+        "Titulo": "Joker",
+        "Ano": "2019",
+        "Tempo": "122 min",
+        "Genero": "Crime, Drama, Thriller",
+        "Diretor": "Todd Phillips",
+        "Escritor": "Todd Phillips, Scott Silver, Bob Kane (based on characters created by), Bill Finger (based on characters created by), Jerry Robinson (based on characters created by)",
+        "Atores": "Joaquin Phoenix, Robert De Niro, Zazie Beetz, Frances Conroy",
+        "Pais": "USA, Canada",
+        "Status": "Assistido"
     }
 ]
