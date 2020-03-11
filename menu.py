@@ -6,6 +6,9 @@ class Menu:
     def escolhas(self, escolha):
         
         print('--' * 94)
+        if escolha == 0:
+            print('Até um outro dia!')
+            return 0
 
         if escolha == 1:
             menu = Movie()
@@ -45,7 +48,8 @@ class Menu:
         print('1-Buscar Filmes')
         print('2-Alterar Filme')
         print('3-Remover Filme')
-        print('4-Para ver a lista de desejos')
+        print('4-Ver a lista de desejos')
+        print('0-Sair')
 
         escolha = int(input('>>> '))
         menu.escolhas(escolha)

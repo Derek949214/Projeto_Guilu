@@ -4,6 +4,7 @@ from time import sleep
 class Movie:
     
     def busca_filme(self):
+
         lista = list()
         chave = '7db9f6c4'
         titulo = input('Digite seu Filme: ')
@@ -15,8 +16,9 @@ class Movie:
         #print('Erro de conexão')
 
         if response['Response'] == 'False':
+            
             print()
-            print('Esse filme não existe!')
+            print('O filme "{}" não existe!'.format(titulo))
             #print(response)
             return
         
@@ -62,7 +64,9 @@ class Movie:
                 for item in desejo:
 
                     if dicionario['Titulo'] == item['Titulo']:
+
                         print('Esse filme já existe na sua lista de desejo!')
+
                         sleep(1)
                         flag = False
                         break
@@ -75,14 +79,18 @@ class Movie:
 
                     with open('wishlist.json', 'w') as lista_desejos:
                         json.dump(desejo, lista_desejos, indent=4)
+
                         print('O filme foi adicionado a sua lista de desejos com sucesso!')
+
                     sleep(1)
                 
                 else:
                     flag = False
 
             except FileNotFoundError:
+
                 if flag:
+
                     with open('wishlist.json', 'w') as lista_desejos:
                         json.dump(lista, lista_desejos, indent=4)
 
@@ -108,89 +116,103 @@ class Movie:
 
 
     def mudar(self):
+
         with open('wishlist.json') as arquivo:
-            ler = json.load(arquivo)
+            altera = json.load(arquivo)
 
-            print(json.dumps(ler, indent=4))
+            print(json.dumps(altera, indent=4))
 
-            mudanca = input('Digite o nome do filme que deseja alterar: ').title()
-            flag = False
+        mudanca = input('Digite o nome do filme que deseja alterar: ').title()
 
-        for item in ler:
+        flag = False
+
+        for item in altera:
 
             if mudanca == item['Titulo']:
-                item['Titulo'] = mudanca
+
                 flag = True
+                break
                     
-                if flag:
+        if flag:
+            
+            alterar = input('1-Assistido\n2-Assistir mais tarde\n3-Continuar assistindo\n4-Não assistido\n>>> ')
+            
+            if alterar == '1':
 
-                    alterar = int(input('1-Assistido\n2-Assistir mais tarde\n3-Continuar assistindo\n>>> '))
+                item['Status'] = 'Assistido'
 
-                    if alterar == 1:
-                        item['Status'] = 'Assistido'
+                with open('wishlist.json', 'w') as arquivo:
+                    json.dump(altera, arquivo, indent=4)
 
-                        with open('wishlist.json', 'w') as arquivo:
-                            json.dump(ler, arquivo, indent=4)
+                    print('Marcado como "Assistido"')
+                
+            elif alterar == '2':
 
-                            print('Marcado como assistido')
-                        
+                item['Status'] = 'Assistir mais tarde'
 
-                    elif alterar == 2:
-                        item['Status'] = 'Assistir mais tarde'
+                with open('wishlist.json', 'w') as arquivo:
+                    json.dump(altera, arquivo, indent=4)
 
-                        with open('wishlist.json', 'w') as arquivo:
-                            json.dump(ler, arquivo, indent=4)
+                    print('Marcado como "Assistir mais tarde"')
+                    
+            elif alterar == '3':
 
-                            print('Marcado como assistir mais tarde')
-                            
+                item['Status'] = 'Continuar assistindo'
 
-                    elif alterar == 3:
-                        item['Status'] = 'Continuar assistindo'
+                with open('wishlist.json', 'w') as arquivo:
+                    json.dump(altera, arquivo, indent=4)
 
-                        with open('wishlist.json', 'w') as arquivo:
-                            json.dump(ler, arquivo, indent=4)
+                    print('Marcado como "Continuar assistindo"')
 
-                            print('Marcado como continuar assistindo')
+            elif alterar == '4':
 
-                    elif alterar > 3 or alterar < 1:
-                        print('Opção inválida')
+                item['Status'] = 'Ainda vou assistir'
 
-                else:
-                    pass
+                with open('wishlist.json', 'w') as arquivo:
+                    json.dump(altera, arquivo, indent=4)
+
+                    print('Marcado como "Ainda vou assistir"')
 
             else:
-                print('Esse filme não existe na sua lista de desejos!')
-            
+                print('Opção inválida')
+
+        else:
+            print('O filme "{}" não existe na sua lista de desejos!'.format(mudanca))
                 
-            
+                   
 
     def deletar_filme(self):
-            with open('wishlist.json') as arquivo:
-                ler = json.load(arquivo)
-                for item in ler:
-                    print(json.dumps(item, indent=4))
-            
-            excluir = input('Digite o filme que deseja excluir da sua lista de desejos\n>>> ').title()
 
-            with open('wishlist.json') as arquivo:
-                delete = json.load(arquivo)
+        with open('wishlist.json') as arquivo:
+            delete = json.load(arquivo)
+
+            print(json.dumps(delete, indent=4))
+            
+        excluir = input('Digite o filme que deseja excluir da sua lista de desejos\n>>> ').title()
                 
-            flag = False
+        flag = False
+        lista = list()
             
+        for item in delete:
+
+            if excluir == item['Titulo']:
+                flag = True
+
+        if flag:
+
             for item in delete:
-                if excluir == item['Titulo']:
-                    flag = True
 
-                    if flag:
-                        delete.remove(item)
-                        with open('wishlist.json', 'w') as arquivo:
-                            json.dump(delete, arquivo, indent=4)
+                if excluir != item['Titulo']:
+                    lista.append(item)
 
-                        print('Filme removido da sua lista de desejos')
+            with open('wishlist.json', 'w') as arquivo:
+                json.dump(lista, arquivo, indent=4)
 
-                else:
-                    print('Esse filme não existe na sua lista de desejos')
-                    break
+                print('Filme removido da sua lista de desejos')
+
+        else:
+            print('O filme "{}" não existe na sua lista de desejos'.format(excluir))
+                
 
 
         
