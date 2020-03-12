@@ -1,16 +1,5 @@
 [
     {
-        "Titulo": "Joker",
-        "Ano": "2019",
-        "Tempo": "122 min",
-        "Genero": "Crime, Drama, Thriller",
-        "Diretor": "Todd Phillips",
-        "Escritor": "Todd Phillips, Scott Silver, Bob Kane (based on characters created by), Bill Finger (based on characters created by), Jerry Robinson (based on characters created by)",
-        "Atores": "Joaquin Phoenix, Robert De Niro, Zazie Beetz, Frances Conroy",
-        "Pais": "USA, Canada",
-        "Status": "Ainda vou assistir"
-    },
-    {
         "Titulo": "1",
         "Ano": "2013",
         "Tempo": "112 min",
@@ -19,7 +8,7 @@
         "Escritor": "Mark Monroe",
         "Atores": "Michael Fassbender, Lewis Hamilton, Niki Lauda, Michael Schumacher",
         "Pais": "USA",
-        "Status": "Pendente"
+        "Status": "Continuar assistindo"
     },
     {
         "Titulo": "Up",
@@ -30,6 +19,50 @@
         "Escritor": "Pete Docter (story by), Bob Peterson (story by), Tom McCarthy (story by), Bob Peterson (screenplay by), Pete Docter (screenplay by)",
         "Atores": "Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson",
         "Pais": "USA",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "4",
+        "Ano": "2004",
+        "Tempo": "126 min",
+        "Genero": "Drama, Mystery, Sci-Fi",
+        "Diretor": "Ilya Khrzhanovskiy",
+        "Escritor": "Vladimir Sorokin",
+        "Atores": "Yuriy Laguta, Marina Vovchenko, Sergey Shnurov, Andrei Kudriashov",
+        "Pais": "Russia, Netherlands",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "Terminator 2: Judgment Day",
+        "Ano": "1991",
+        "Tempo": "137 min",
+        "Genero": "Action, Sci-Fi",
+        "Diretor": "James Cameron",
+        "Escritor": "James Cameron, William Wisher",
+        "Atores": "Arnold Schwarzenegger, Linda Hamilton, Edward Furlong, Robert Patrick",
+        "Pais": "USA",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "Iron Man 3",
+        "Ano": "2013",
+        "Tempo": "130 min",
+        "Genero": "Action, Adventure, Sci-Fi",
+        "Diretor": "Shane Black",
+        "Escritor": "Drew Pearce (screenplay by), Shane Black (screenplay by), Stan Lee (based on the Marvel comic book by), Don Heck (based on the Marvel comic book by), Larry Lieber (based on the Marvel comic book by), Jack Kirby (based on the Marvel comic book by), Warren Ellis (based on the \"Extremis\" mini-series written by), Adi Granov (based on the \"Extremis\" mini-series illustrated by)",
+        "Atores": "Robert Downey Jr., Gwyneth Paltrow, Don Cheadle, Guy Pearce",
+        "Pais": "USA",
+        "Status": "Assistido"
+    },
+    {
+        "Titulo": "Final Destination 5",
+        "Ano": "2011",
+        "Tempo": "92 min",
+        "Genero": "Horror, Thriller",
+        "Diretor": "Steven Quale",
+        "Escritor": "Eric Heisserer, Jeffrey Reddick (characters)",
+        "Atores": "Nicholas D'Agosto, Emma Bell, Miles Fisher, Ellen Wroe",
+        "Pais": "USA, Canada, Singapore, Hong Kong",
         "Status": "Pendente"
     }
 ]
