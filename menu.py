@@ -4,9 +4,16 @@ from time import sleep
 
 class Menu:
     
+    def voltar(self):
+        print(' ___________________________________________________________')
+        print('|                                                           |')
+        print('|\t\t  VOLTANDO PARA O MENU...                   |')
+        print('|___________________________________________________________|')
+        sleep(1.5)
+        
     def escolhas(self, escolha):
 
-        if escolha == 0:
+        if escolha == '0':
 
             print(' ___________________________________________________________')
             print('|                                                           |')
@@ -16,7 +23,7 @@ class Menu:
 
             return 0
 
-        if escolha == 1:
+        elif escolha == '1':
 
             print(' ___________________________________________________________')
             print('|                                                           |')
@@ -26,34 +33,61 @@ class Menu:
             menu = Movie()
             menu.busca_filme()
 
+            voltando = Menu()
+            voltando.voltar()
+
             filme = Menu()
             filme.pedidos()
 
-        if escolha == 2:
+        elif escolha == '2':
             menu = Movie()
             menu.listar()
 
+            voltando = Menu()
+            voltando.voltar()
+
             filme = Menu()
             filme.pedidos()
 
-        if escolha == 3:
+        elif escolha == '3':
             menu = Movie()
             menu.busca_desejos()
 
+            voltando = Menu()
+            voltando.voltar()
+
             filme = Menu()
             filme.pedidos()
 
-        if escolha == 4:
+        elif escolha == '4':
             menu = Movie()
             menu.mudar()
 
+            voltando = Menu()
+            voltando.voltar()
+
             filme = Menu()
             filme.pedidos()
 
-        if escolha == 5:
+        elif escolha == '5':
             menu = Movie()
             menu.deletar_filme()
 
+            voltando = Menu()
+            voltando.voltar()
+
+            filme = Menu()
+            filme.pedidos()
+
+        else:
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('|\t\t     OPÇÃO INVÁLIDA                         |')
+            print('|___________________________________________________________|')
+            sleep(1)
+            voltando = Menu()
+            voltando.voltar()
+            
             filme = Menu()
             filme.pedidos()
    
@@ -75,7 +109,7 @@ class Menu:
         print('| 5-Remover filme                                           |')
         print('| 0-Sair                                                    |')
         print('|                                                           |')
-        escolha = int(input('| >>> '))
+        escolha = input('| >>> ')
         print('|___________________________________________________________|')
         menu.escolhas(escolha)
 
