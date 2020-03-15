@@ -19,46 +19,71 @@ class Movie:
 
         if response['Response'] == 'False':
             
-           response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,pesquisa)).json()
+            response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,pesquisa)).json()
 
-           print('--' * 110)
-           print(' Título: ', response['Title'])      
-           print(' Ano: ', response['Year'])
-           print(' Tempo: ', response['Runtime'])
-           print(' Genero: ', response['Genre'])
-           print(' Diretor: ', response['Director'])
-           print(' Escritor: ', response['Writer'])
-           print(' Atores: ', response['Actors'])
-           print(' País: ', response['Country'])
-           print('--' * 110)
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('|\t\t    DETALHES DO FILME                       |')
+            print('|___________________________________________________________|')
+            sleep(1)
 
-           if response['Response'] == 'False':
+            print('--' * 110)
+            print(' Título: ', response['Title'])      
+            print(' Ano: ', response['Year'])
+            print(' Tempo: ', response['Runtime'])
+            print(' Genero: ', response['Genre'])
+            print(' Diretor: ', response['Director'])
+            print(' Escritor: ', response['Writer'])
+            print(' Atores: ', response['Actors'])
+            print(' País: ', response['Country'])
+            print('--' * 110)
+
+            if response['Response'] == 'False':
                 
                 print(' ___________________________________________________________')
                 print('|                                                           |')
                 print('| \t\t   O filme não existe!                      |')
                 print('|___________________________________________________________|')
                 sleep(1)
-
                 #print(response)
                 return
 
         else:
             
             print('--' * 110)
-            print(json.dumps(response, indent=4))
+            print(json.dumps(response['Search'], indent=4))
+            print('--' * 110)
+
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('| Escolha o filme que deseja                                |')
+            print('|                                                           |')
+            titulo = input('| >>> ')
+            print('|___________________________________________________________|')
+
+            response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,titulo)).json()
+
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('|\t\t    DETALHES DO FILME                       |')
+            print('|___________________________________________________________|')
+            sleep(1)
+
+            print('--' * 110)
+            print(' Título: ', response['Title'])      
+            print(' Ano: ', response['Year'])
+            print(' Tempo: ', response['Runtime'])
+            print(' Genero: ', response['Genre'])
+            print(' Diretor: ', response['Director'])
+            print(' Escritor: ', response['Writer'])
+            print(' Atores: ', response['Actors'])
+            print(' País: ', response['Country'])
             print('--' * 110)
 
         sleep(1.5)
 
-        print(' ___________________________________________________________')
-        print('|                                                           |')
-        print('| Escolha o filme que deseja                                |')
-        print('|                                                           |')
-        titulo = input('| >>> ')
-        print('|___________________________________________________________|')
-
-        response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,titulo)).json()
+        
+        #response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,titulo)).json()
 
         if response['Response'] == 'False':
             
@@ -73,22 +98,6 @@ class Movie:
         
         else:
             pass
-
-        print(' ___________________________________________________________')
-        print('|                                                           |')
-        print('|\t\t    DETALHES DO FILME                       |')
-        print('|___________________________________________________________|')
-        sleep(1)
-        print('--' * 110)
-        print(' Título: ', response['Title'])      
-        print(' Ano: ', response['Year'])
-        print(' Tempo: ', response['Runtime'])
-        print(' Genero: ', response['Genre'])
-        print(' Diretor: ', response['Director'])
-        print(' Escritor: ', response['Writer'])
-        print(' Atores: ', response['Actors'])
-        print(' País: ', response['Country'])
-        print('--' * 110)
 
         dicionario = {
             'Titulo': response['Title'].lower(),
@@ -116,9 +125,10 @@ class Movie:
         
 
         if escolha == '1':
-            flag = True
             
             try:
+
+                flag = True
                 
                 with open('wishlist.json') as arquivo:
                     desejo = json.load(arquivo)
@@ -159,17 +169,15 @@ class Movie:
 
             except FileNotFoundError:
 
-                if flag:
+                with open('wishlist.json', 'w') as lista_desejos:
+                    json.dump(lista, lista_desejos, indent=4)
 
-                    with open('wishlist.json', 'w') as lista_desejos:
-                        json.dump(lista, lista_desejos, indent=4)
+                    print(' ____________________________________________________________')
+                    print('|                                                            |')
+                    print('| O filme foi adicionado a sua lista de desejos com sucesso! |')
+                    print('|____________________________________________________________|')
 
-                        print(' ____________________________________________________________')
-                        print('|                                                            |')
-                        print('| O filme foi adicionado a sua lista de desejos com sucesso! |')
-                        print('|____________________________________________________________|')
-
-                    sleep(1)
+                sleep(1)
 
 
         if escolha == '2':
@@ -197,7 +205,7 @@ class Movie:
 
                 for item in printar:
 
-                    print(' Título: ', item['Titulo'])      
+                    print(' Título: ', item['Titulo'].title())      
                     print(' Ano: ', item['Ano'])
                     print(' Tempo: ', item['Tempo'])
                     print(' Genero: ', item['Genero'])
@@ -253,7 +261,7 @@ class Movie:
                 print('|___________________________________________________________|')
                 sleep(1)
                 print('--' * 110)
-                print('Título: ', item['Titulo'])      
+                print('Título: ', item['Titulo'].title())      
                 print('Ano: ', item['Ano'])
                 print('Tempo: ', item['Tempo'])
                 print('Genero: ', item['Genero'])
@@ -293,7 +301,7 @@ class Movie:
                 print('--' * 110)
                 for item in altera:
 
-                    print(' Título: ', item['Titulo'])      
+                    print(' Título: ', item['Titulo'].title())      
                     print(' Ano: ', item['Ano'])
                     print(' Tempo: ', item['Tempo'])
                     print(' Genero: ', item['Genero'])
@@ -437,7 +445,7 @@ class Movie:
             print('|                                                           |')
             print('| Digite o filme que deseja excluir da sua lista de desejos |')
             print('|                                                           |')
-            excluir = input('| >>> ').title().strip()
+            excluir = input('| >>> ').lower().strip()
             print('|___________________________________________________________|')
                         
             flag = False
