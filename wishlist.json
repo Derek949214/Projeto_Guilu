@@ -1,27 +1,5 @@
 [
     {
-        "Titulo": "kid bengala",
-        "Ano": "2007",
-        "Tempo": "N/A",
-        "Genero": "Adult",
-        "Diretor": "M. Max",
-        "Escritor": "N/A",
-        "Atores": "Kid Bengala, Bruna Ferraz, Patricia Mayer, Melissa Pitanga",
-        "Pais": "Brazil",
-        "Status": "Assistido"
-    },
-    {
-        "Titulo": "mia khalifa",
-        "Ano": "2015",
-        "Tempo": "102 min",
-        "Genero": "Adult",
-        "Diretor": "N/A",
-        "Escritor": "N/A",
-        "Atores": "Karlo Karrera, Mia Khalifa",
-        "Pais": "USA",
-        "Status": "Continuar assistindo"
-    },
-    {
         "Titulo": "up",
         "Ano": "2009",
         "Tempo": "96 min",
@@ -30,6 +8,50 @@
         "Escritor": "Pete Docter (story by), Bob Peterson (story by), Tom McCarthy (story by), Bob Peterson (screenplay by), Pete Docter (screenplay by)",
         "Atores": "Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson",
         "Pais": "USA",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "1",
+        "Ano": "2013",
+        "Tempo": "112 min",
+        "Genero": "Documentary, History, Sport",
+        "Diretor": "Paul Crowder",
+        "Escritor": "Mark Monroe",
+        "Atores": "Michael Fassbender, Lewis Hamilton, Niki Lauda, Michael Schumacher",
+        "Pais": "USA",
+        "Status": "Assistido"
+    },
+    {
+        "Titulo": "4",
+        "Ano": "2004",
+        "Tempo": "126 min",
+        "Genero": "Drama, Mystery, Sci-Fi",
+        "Diretor": "Ilya Khrzhanovskiy",
+        "Escritor": "Vladimir Sorokin",
+        "Atores": "Yuriy Laguta, Marina Vovchenko, Sergey Shnurov, Andrei Kudriashov",
+        "Pais": "Russia, Netherlands",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "lol",
+        "Ano": "2012",
+        "Tempo": "97 min",
+        "Genero": "Comedy, Drama, Romance",
+        "Diretor": "Lisa Azuelos",
+        "Escritor": "Lisa Azuelos (screenplay), Kamir A\u00efnouz (screenplay), Lisa Azuelos (film \"LOL [Laughing Out Loud]\u00ae\"), Nans Delgado (film \"LOL [Laughing Out Loud]\u00ae\")",
+        "Atores": "Jean-Luc Bilodeau, Douglas Booth, Vivian Le Borgne, Bridget Brown",
+        "Pais": "USA",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "batman begins",
+        "Ano": "2005",
+        "Tempo": "140 min",
+        "Genero": "Action, Adventure, Fantasy, Thriller",
+        "Diretor": "Christopher Nolan",
+        "Escritor": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+        "Atores": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+        "Pais": "USA, UK",
         "Status": "Pendente"
     }
 ]

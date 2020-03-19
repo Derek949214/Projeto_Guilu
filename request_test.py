@@ -1,4 +1,4 @@
-import requests,json
+import requests,json, os
 from time import sleep
 
 class Movie:
@@ -10,33 +10,19 @@ class Movie:
         print(' ___________________________________________________________')
         print('|                                                           |')
         print('| Digite seu filme                                          |')
+        print('|___________________________________________________________|')
         print('|                                                           |')
         pesquisa = input('| >>> ')
         print('|___________________________________________________________|')
 
         status = 'Pendente'
-        response = requests.get("http://www.omdbapi.com/?apikey={}&s={}".format(chave,pesquisa)).json()
 
-        if response['Response'] == 'False':
+        response1 = requests.get("http://www.omdbapi.com/?apikey={}&s={}".format(chave,pesquisa)).json()
+
+        if response1['Response'] == 'False':
             
             response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,pesquisa)).json()
 
-            print(' ___________________________________________________________')
-            print('|                                                           |')
-            print('|\t\t    DETALHES DO FILME                       |')
-            print('|___________________________________________________________|')
-            sleep(1)
-
-            print('--' * 110)
-            print(' Título: ', response['Title'])      
-            print(' Ano: ', response['Year'])
-            print(' Tempo: ', response['Runtime'])
-            print(' Genero: ', response['Genre'])
-            print(' Diretor: ', response['Director'])
-            print(' Escritor: ', response['Writer'])
-            print(' Atores: ', response['Actors'])
-            print(' País: ', response['Country'])
-            print('--' * 110)
 
             if response['Response'] == 'False':
                 
@@ -48,42 +34,88 @@ class Movie:
                 #print(response)
                 return
 
+            else:
+                
+                os.system('clear')
+                print(' ___________________________________________________________')
+                print('|                                                           |')
+                print('|\t\t    DETALHES DO FILME                       |')
+                print('|___________________________________________________________|')
+                sleep(1)
+
+                print('--' * 110)
+                print(' Título: ', response['Title'])      
+                print(' Ano: ', response['Year'])
+                print(' Tempo: ', response['Runtime'])
+                print(' Genero: ', response['Genre'])
+                print(' Diretor: ', response['Director'])
+                print(' Escritor: ', response['Writer'])
+                print(' Atores: ', response['Actors'])
+                print(' País: ', response['Country'])
+                print('--' * 110)
+
         else:
+
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('|\t\t  FILMES COM O MESMO NOME!                  |')
+            print('|___________________________________________________________|')
+            sleep(1)
             
             print('--' * 110)
-            print(json.dumps(response['Search'], indent=4))
+            print(json.dumps(response1['Search'], indent=4))
             print('--' * 110)
 
             print(' ___________________________________________________________')
             print('|                                                           |')
             print('| Escolha o filme que deseja                                |')
+            print('|___________________________________________________________|')
             print('|                                                           |')
             titulo = input('| >>> ')
             print('|___________________________________________________________|')
-
+            
+                
             response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,titulo)).json()
 
-            print(' ___________________________________________________________')
-            print('|                                                           |')
-            print('|\t\t    DETALHES DO FILME                       |')
-            print('|___________________________________________________________|')
-            sleep(1)
+            
+            for item in response1:
 
-            print('--' * 110)
-            print(' Título: ', response['Title'])      
-            print(' Ano: ', response['Year'])
-            print(' Tempo: ', response['Runtime'])
-            print(' Genero: ', response['Genre'])
-            print(' Diretor: ', response['Director'])
-            print(' Escritor: ', response['Writer'])
-            print(' Atores: ', response['Actors'])
-            print(' País: ', response['Country'])
-            print('--' * 110)
+                if titulo == response1['Search'][0]['Title']:
 
-        sleep(1.5)
+                    print(' ___________________________________________________________')
+                    print('|                                                           |')
+                    print('|\t\t    DETALHES DO FILME                       |')
+                    print('|___________________________________________________________|')
+                    sleep(1)
 
-        
-        #response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,titulo)).json()
+                    print('--' * 110)
+                    print(' Título: ', response['Title'])
+                    print(' Ano: ', response['Year'])
+                    print(' Tempo: ', response['Runtime'])
+                    print(' Genero: ', response['Genre'])
+                    print(' Diretor: ', response['Director'])
+                    print(' Escritor: ', response['Writer'])
+                    print(' Atores: ', response['Actors'])
+                    print(' País: ', response['Country'])
+                    print('--' * 110)
+
+                    sleep(1.5)
+                    
+
+                
+                else:                 
+
+                    print(' ___________________________________________________________')
+                    print('|                                                           |')
+                    print('|\t      Este filme não está listado acima!            |')
+                    print('|___________________________________________________________|')
+                    sleep(1)
+                    os.system('clear')
+                    
+                    return
+
+                    
+
 
         if response['Response'] == 'False':
             
@@ -92,9 +124,10 @@ class Movie:
             print('| \t\t   O filme não existe!                      |')
             print('|___________________________________________________________|')
             sleep(1)
+            os.system('clear')
+            return
 
             #print(response)
-            return
         
         else:
             pass
@@ -118,7 +151,8 @@ class Movie:
         print('|\t   Deseja adicionar a lista de desejos?             |')
         print('| 1-Sim                                                     |')
         print('| 2-Não                                                     |')
-
+        print('|___________________________________________________________|')
+        print('|                                                           |')
         escolha = input('| >>> ')
         print('|___________________________________________________________|')
         
@@ -144,6 +178,7 @@ class Movie:
 
                         sleep(1)
                         flag = False
+                        os.system('clear') 
                         break
                     
                     else:
@@ -162,6 +197,7 @@ class Movie:
                         print('|____________________________________________________________|')
 
                     sleep(1)
+                    os.system('clear')
 
                 
                 else:
@@ -177,6 +213,7 @@ class Movie:
                     print('| O filme foi adicionado a sua lista de desejos com sucesso! |')
                     print('|____________________________________________________________|')
 
+                os.system('clear')
                 sleep(1)
 
 
@@ -187,6 +224,7 @@ class Movie:
             print('|\t\t O filme não foi adicionado!                |')
             print('|___________________________________________________________|')
             sleep(1)
+            os.system('clear')
 
 
     def listar(self):
@@ -196,6 +234,7 @@ class Movie:
             with open('wishlist.json') as arquivo:
                 printar = json.load(arquivo)
 
+                os.system('clear')
                 print(' ___________________________________________________________')
                 print('|                                                           |')
                 print('|\t\t   Sua lista de desejos                     |')
@@ -222,6 +261,30 @@ class Movie:
                 print('|\t\t      FIM DA LISTA                          |')
                 print('|___________________________________________________________|')
                 sleep(1)
+                
+                while True:
+                    
+                    print(' ___________________________________________________________')
+                    print('|                                                           |')
+                    print('| 1-Menu                                                    |')
+                    print('|___________________________________________________________|')
+                    print('|                                                           |')
+                    sair = input('| >>> ')
+                    print('|___________________________________________________________|')
+
+                    if sair == '1':
+
+                        os.system('clear')
+                        break
+                        
+
+                    else:
+                        
+                        print(' ___________________________________________________________')
+                        print('|                                                           |')
+                        print('|\t\t       OPÇÃO INVÁLIDA                       |')
+                        print('|___________________________________________________________|')
+                        sleep(1)
 
         except FileNotFoundError:
 
@@ -230,12 +293,13 @@ class Movie:
             print('| Não existe nenhum filme na sua lista de desejos!             |')
             print('|______________________________________________________________|')
             sleep(1)
+            os.system('clear')
         
     def busca_desejos(self):
 
-        flag = False
-
         try:
+
+            flag = False
 
             with open('wishlist.json') as arquivo:
                 printar = json.load(arquivo)
@@ -243,6 +307,7 @@ class Movie:
             print(' __________________________________________________________________')
             print('|                                                                  |')
             print('| Digite o nome do filme que deseja buscar na sua lista de desejos |')
+            print('|__________________________________________________________________|')
             print('|                                                                  |')
             filme = input('| >>> ').lower().strip()
             print('|__________________________________________________________________|')
@@ -274,6 +339,27 @@ class Movie:
                 print('--' * 110)
                 sleep(2)
 
+                while True:
+
+                    print(' ___________________________________________________________')
+                    print('|                                                           |')
+                    print('| 1-Menu                                                    |')
+                    print('|___________________________________________________________|')
+                    print('|                                                           |')
+                    sair = input('| >>> ')
+                    print('|___________________________________________________________|')
+
+                    if sair == '1':
+                        os.system('clear')
+                        
+
+                    else:
+                        print(' ___________________________________________________________')
+                        print('|                                                           |')
+                        print('|\t\t       OPÇÃO INVÁLIDA                       |')
+                        print('|___________________________________________________________|')
+                        sleep(1)
+
             else:
 
                 print(' ___________________________________________________________')
@@ -281,6 +367,7 @@ class Movie:
                 print('|\t\t    FILME NÃO ENCONTRADO!                   |')
                 print('|___________________________________________________________|')
                 sleep(1)
+                os.system('clear')
 
 
         except FileNotFoundError:
@@ -290,6 +377,7 @@ class Movie:
             print('| Não existe nenhum filme na sua lista de desejos!             |')
             print('|______________________________________________________________|')
             sleep(1)
+            os.system('clear')
 
 
     def mudar(self):
@@ -310,12 +398,14 @@ class Movie:
                     print(' Atores: ', item['Atores'])
                     print(' País: ', item['Pais'])
                     print('Status: ', item['Status'])
-                    print('--' * 150)
+                    print('--' * 110)
                     sleep(1)
 
             print(' ___________________________________________________________')
             print('|                                                           |')
             print('|   Digite o nome do filme que deseja alterar o status      |')
+            print('|___________________________________________________________|')
+
             print('|                                                           |')
             mudanca = input('| >>> ').lower().strip()
             print('|___________________________________________________________|')
@@ -338,6 +428,7 @@ class Movie:
                 print('| 2-Assistir mais tarde                                     |')
                 print('| 3-Continuar assisitindo                                   |')
                 print('| 4-Não assistido                                           |')
+                print('|___________________________________________________________|')
                 print('|                                                           |')
                 alterar = input('| >>> ')
                 print('|___________________________________________________________|')
@@ -354,6 +445,7 @@ class Movie:
                         print('|\t\t  Marcado como "Assistido"                  |')
                         print('|___________________________________________________________|')
                         sleep(1)
+                        os.system('clear')
                         
                 elif alterar == '2':
 
@@ -367,6 +459,7 @@ class Movie:
                         print('|\t     Marcado como "Assistir mais tarde"             |')
                         print('|___________________________________________________________|')
                         sleep(1)
+                        os.system('clear')
                         
                 elif alterar == '3':
 
@@ -380,6 +473,7 @@ class Movie:
                         print('|\t      Marcado como "Continuar assistindo"           |')
                         print('|___________________________________________________________|')
                         sleep(1)
+                        os.system('clear')
                         
 
                 elif alterar == '4':
@@ -394,6 +488,7 @@ class Movie:
                         print('|\t\tMarcado como "Não assistido"                |')
                         print('|___________________________________________________________|')
                         sleep(1)
+                        os.system('clear') 
                         
 
                 else:
@@ -402,6 +497,7 @@ class Movie:
                     print('|\t\t       OPÇÃO INVÁLIDA                       |')
                     print('|___________________________________________________________|')
                     sleep(1)
+                    os.system('clear') 
                     
             else:
                 print(' ___________________________________________________________')
@@ -409,6 +505,7 @@ class Movie:
                 print('|\t  O filme não existe na sua lista de desejos!       |')
                 print('|___________________________________________________________|')
                 sleep(1)
+                os.system('clear') 
                
 
         except FileNotFoundError:
@@ -418,6 +515,7 @@ class Movie:
             print('| Não existe nenhum filme na sua lista de desejos!             |')
             print('|______________________________________________________________|')
             sleep(1)
+            os.system('clear') 
                     
 
     def deletar_filme(self):
@@ -444,6 +542,7 @@ class Movie:
             print(' ___________________________________________________________')
             print('|                                                           |')
             print('| Digite o filme que deseja excluir da sua lista de desejos |')
+            print('|___________________________________________________________|')
             print('|                                                           |')
             excluir = input('| >>> ').lower().strip()
             print('|___________________________________________________________|')
@@ -471,6 +570,7 @@ class Movie:
                     print('|\t  Filme removido da sua lista de desejos            |')
                     print('|___________________________________________________________|')
                     sleep(1)
+                    os.system('clear') 
             
             else:
                 print(' ___________________________________________________________')
@@ -478,6 +578,7 @@ class Movie:
                 print('|\t O filme não existe na sua lista de desejos!        |')
                 print('|___________________________________________________________|')
                 sleep(1)
+                os.system('clear') 
                 
         except FileNotFoundError:
 
@@ -486,6 +587,7 @@ class Movie:
             print('| Não existe nenhum filme na sua lista de desejos!             |')
             print('|______________________________________________________________|')
             sleep(1)
+            os.system('clear') 
         
 
     #print(response['Ratings'][2]['Value'])
