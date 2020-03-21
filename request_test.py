@@ -12,7 +12,7 @@ class Movie:
         print('| Digite seu filme                                          |')
         print('|___________________________________________________________|')
         print('|                                                           |')
-        pesquisa = input('| >>> ')
+        pesquisa = input('| >>> ').lower()
         print('|___________________________________________________________|')
 
         status = 'Pendente'
@@ -63,8 +63,14 @@ class Movie:
             sleep(1)
             
             print('--' * 110)
-            print(json.dumps(response1['Search'], indent=4))
-            print('--' * 110)
+
+            for tamanho in range(0, len(response1['Search'])):
+
+                print(' Titulo: ', response1['Search'][tamanho]['Title'])
+                print(' Ano: ', response1['Search'][tamanho]['Year'])
+                print(' Tipo', response1['Search'][tamanho]['Type'])
+                print('--' * 110)
+                sleep(1)
 
             print(' ___________________________________________________________')
             print('|                                                           |')
@@ -78,16 +84,18 @@ class Movie:
             response = requests.get("http://www.omdbapi.com/?apikey={}&t={}".format(chave,titulo)).json()
 
             
-            for item in response1:
 
-                if titulo == response1['Search'][0]['Title']:
+            for tamanho in range(0, len(response1['Search'])):
 
+                if titulo == response1['Search'][tamanho]['Title']:
+                    
+                    os.system('clear')
                     print(' ___________________________________________________________')
                     print('|                                                           |')
                     print('|\t\t    DETALHES DO FILME                       |')
                     print('|___________________________________________________________|')
-                    sleep(1)
 
+                    sleep(1)
                     print('--' * 110)
                     print(' Título: ', response['Title'])
                     print(' Ano: ', response['Year'])
@@ -100,11 +108,16 @@ class Movie:
                     print('--' * 110)
 
                     sleep(1.5)
+                        
+                    break
+                                
+                else:
+                                
+                    tamanho += 1
+
+                if tamanho >= len(response1['Search']):
                     
-
-                
-                else:                 
-
+                    os.system('clear')
                     print(' ___________________________________________________________')
                     print('|                                                           |')
                     print('|\t      Este filme não está listado acima!            |')
@@ -113,8 +126,9 @@ class Movie:
                     os.system('clear')
                     
                     return
-
                     
+                else:
+                    pass
 
 
         if response['Response'] == 'False':
@@ -201,6 +215,7 @@ class Movie:
 
                 
                 else:
+
                     flag = False
 
             except FileNotFoundError:
@@ -350,7 +365,9 @@ class Movie:
                     print('|___________________________________________________________|')
 
                     if sair == '1':
+
                         os.system('clear')
+                        break
                         
 
                     else:
@@ -588,6 +605,38 @@ class Movie:
             print('|______________________________________________________________|')
             sleep(1)
             os.system('clear') 
+
+
+    def ultimo(self):
+
+        with open('wishlist.json') as arquivo:
+            desejo = json.load(arquivo)
+
+            print(json.dumps(desejo, indent=4))
+
+        while True:
+
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('| 1-Menu                                                    |')
+            print('|___________________________________________________________|')
+            print('|                                                           |')
+            sair = input('| >>> ')
+            print('|___________________________________________________________|')
+
+            if sair == '1':
+
+                os.system('clear')
+                break
+                        
+
+            else:
+
+                print(' ___________________________________________________________')
+                print('|                                                           |')
+                print('|\t\t       OPÇÃO INVÁLIDA                       |')
+                print('|___________________________________________________________|')
+                sleep(1)
         
 
     #print(response['Ratings'][2]['Value'])

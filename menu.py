@@ -76,6 +76,11 @@ class Menu:
             menu = Movie()
             menu.deletar_filme()
 
+        elif escolha == '6':
+
+            menu = Movie()
+            menu.ultimo()
+
 
         else:
             print(' ___________________________________________________________')
@@ -105,6 +110,7 @@ class Menu:
         print('| 3-Buscar filme na lista de desejos                        |')
         print('| 4-Alterar filme                                           |')
         print('| 5-Remover filme                                           |')
+        print('| 6-Último adicionado                                       |')
         print('| 0-Sair                                                    |')
         print('|___________________________________________________________|')
         print('|                                                           |')
@@ -158,6 +164,16 @@ class Menu:
             filme.pedidos()
 
         elif escolha == '5':
+
+            menu.escolhas(escolha)
+
+            voltando = Menu()
+            voltando.voltar()
+
+            filme = Menu()
+            filme.pedidos()
+
+        elif escolha == '6':
 
             menu.escolhas(escolha)
 
