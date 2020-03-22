@@ -8,6 +8,7 @@
         "Escritor": "Pete Docter (story by), Bob Peterson (story by), Tom McCarthy (story by), Bob Peterson (screenplay by), Pete Docter (screenplay by)",
         "Atores": "Edward Asner, Christopher Plummer, Jordan Nagai, Bob Peterson",
         "Pais": "USA",
+        "Tipo": "movie",
         "Status": "Pendente"
     },
     {
@@ -19,7 +20,8 @@
         "Escritor": "Mark Monroe",
         "Atores": "Michael Fassbender, Lewis Hamilton, Niki Lauda, Michael Schumacher",
         "Pais": "USA",
-        "Status": "Assistido"
+        "Tipo": "movie",
+        "Status": "Pendente"
     },
     {
         "Titulo": "4",
@@ -30,6 +32,7 @@
         "Escritor": "Vladimir Sorokin",
         "Atores": "Yuriy Laguta, Marina Vovchenko, Sergey Shnurov, Andrei Kudriashov",
         "Pais": "Russia, Netherlands",
+        "Tipo": "movie",
         "Status": "Pendente"
     },
     {
@@ -41,17 +44,31 @@
         "Escritor": "Lisa Azuelos (screenplay), Kamir A\u00efnouz (screenplay), Lisa Azuelos (film \"LOL [Laughing Out Loud]\u00ae\"), Nans Delgado (film \"LOL [Laughing Out Loud]\u00ae\")",
         "Atores": "Jean-Luc Bilodeau, Douglas Booth, Vivian Le Borgne, Bridget Brown",
         "Pais": "USA",
+        "Tipo": "movie",
         "Status": "Pendente"
     },
     {
         "Titulo": "batman begins",
         "Ano": "2005",
         "Tempo": "140 min",
-        "Genero": "Action, Adventure, Fantasy, Thriller",
+        "Genero": "Action, Adventure",
         "Diretor": "Christopher Nolan",
         "Escritor": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
         "Atores": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
         "Pais": "USA, UK",
+        "Tipo": "movie",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "the walking dead",
+        "Ano": "2010\u2013",
+        "Tempo": "44 min",
+        "Genero": "Drama, Horror, Thriller",
+        "Diretor": "N/A",
+        "Escritor": "Frank Darabont, Angela Kang",
+        "Atores": "Norman Reedus, Melissa McBride, Danai Gurira, Andrew Lincoln",
+        "Pais": "USA",
+        "Tipo": "series",
         "Status": "Pendente"
     }
 ]

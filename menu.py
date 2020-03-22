@@ -33,16 +33,11 @@ class Menu:
             print()
             sleep(1)
             os.system('clear')
+
+            return
             
 
         elif escolha == '1':
-
-            os.system('clear') 
-            print(' ___________________________________________________________')
-            print('|                                                           |')
-            print('|\t\t      Busca de Filmes                       |')
-            print('|___________________________________________________________|')
-            sleep(1)
 
             menu = Movie()
             menu.busca_filme()
@@ -52,12 +47,6 @@ class Menu:
 
             menu = Movie()
             menu.listar()
-
-            voltando = Menu()
-            voltando.voltar()
-
-            filme = Menu()
-            filme.pedidos()
 
         elif escolha == '3':
 
@@ -79,7 +68,12 @@ class Menu:
         elif escolha == '6':
 
             menu = Movie()
-            menu.ultimo()
+            menu.sugestao_ultimo()
+
+        elif escolha == '7':
+
+            menu = Movie()
+            menu.sugestao_historico()
 
 
         else:
@@ -110,7 +104,8 @@ class Menu:
         print('| 3-Buscar filme na lista de desejos                        |')
         print('| 4-Alterar filme                                           |')
         print('| 5-Remover filme                                           |')
-        print('| 6-Último adicionado                                       |')
+        print('| 6-Sugestão pelo último filme/série adicionado             |')
+        print('| 7-Sugestão pelo histórico                                 |')
         print('| 0-Sair                                                    |')
         print('|___________________________________________________________|')
         print('|                                                           |')
@@ -120,7 +115,6 @@ class Menu:
         if escolha == '0':
 
             menu.escolhas(escolha)
-            return
             
 
         elif escolha == '1':
@@ -174,6 +168,16 @@ class Menu:
             filme.pedidos()
 
         elif escolha == '6':
+
+            menu.escolhas(escolha)
+
+            voltando = Menu()
+            voltando.voltar()
+
+            filme = Menu()
+            filme.pedidos()
+
+        elif escolha == '7':
 
             menu.escolhas(escolha)
 
