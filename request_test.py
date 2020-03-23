@@ -522,7 +522,7 @@ class Movie:
 
                 for item in desejo:
 
-                    if dicionario['Titulo'] == item['Titulo'] and dicionario['Tipo'] == item['Tipo']:
+                    if dicionario['Titulo'] == item['Titulo'] and dicionario['Tipo'] == item['Tipo'] and dicionario['Ano'] == item['Ano']:
 
                         if dicionario['Tipo'] == 'movie':
 
@@ -788,11 +788,19 @@ class Movie:
 
             print(' __________________________________________________________________')
             print('|                                                                  |')
-            print('| Digite o nome o titulo que deseja buscar na sua lista de desejos |')
+            print('| Digite o titulo que deseja buscar na sua lista de desejos        |')
             print('|__________________________________________________________________|')
             print('|                                                                  |')
             filme = input('| >>> ').lower().strip()
             print('|__________________________________________________________________|')
+
+            print(' ________________________________________________________________')
+            print('|                                                                |')
+            print('| Digite o ano do título escolhido                               |')    
+            print('|________________________________________________________________|')
+            print('|                                                                |')
+            ano = input('| >>> ')
+            print('|________________________________________________________________|')
 
             print(' __________________________________________________________________')
             print('|                                                                  |')
@@ -804,10 +812,10 @@ class Movie:
             print('|__________________________________________________________________|')
             
             for item in printar:
-                
-                if filme == item['Titulo']:
                    
-                    if tipo == '1':
+                if tipo == '1':
+
+                    if filme == item['Titulo'] and ano == item['Ano']:
 
                         if item['Tipo'] == 'movie':
 
@@ -844,7 +852,9 @@ class Movie:
 
                     
 
-                    elif tipo == '2':
+                elif tipo == '2':
+
+                    if filme == item['Titulo'] and ano == item['Ano']:
 
                         if item['Tipo'] == 'series':
 
@@ -869,7 +879,7 @@ class Movie:
                             print()
                             print('--' * 110)
                             sleep(2)
-                                
+                                    
                             break
 
                         else:
@@ -881,25 +891,24 @@ class Movie:
 
                             break
       
-                    else:
-
-                        print(' ___________________________________________________________')
-                        print('|                                                           |')
-                        print('|\t\t      OPÇÃO INVÁLIDA                        |')
-                        print('|___________________________________________________________|')
-                        sleep(1)
-
-                        break
-
                 else:
 
                     print(' ___________________________________________________________')
                     print('|                                                           |')
-                    print('|\t\t   TITULO NÃO ENCONTRADO!                   |')
+                    print('|\t\t      OPÇÃO INVÁLIDA                        |')
                     print('|___________________________________________________________|')
                     sleep(1)
 
                     break
+
+            else:
+
+                print(' ___________________________________________________________')
+                print('|                                                           |')
+                print('|\t\t   TITULO NÃO ENCONTRADO!                   |')
+                print('|___________________________________________________________|')
+                sleep(1)
+
 
 
         except FileNotFoundError:
@@ -961,6 +970,15 @@ class Movie:
 
             print(' ________________________________________________________________')
             print('|                                                                |')
+            print('| Digite o ano do título escolhido                               |')    
+            print('|________________________________________________________________|')
+            print('|                                                                |')
+            ano = input('| >>> ')
+            print('|________________________________________________________________|')
+
+
+            print(' ________________________________________________________________')
+            print('|                                                                |')
             print('| 1-Filme                                                        |')
             print('| 2-Série                                                        |')
             print('|________________________________________________________________|')
@@ -975,14 +993,14 @@ class Movie:
                 if tipo == '1':
                     
 
-                    if mudanca == item['Titulo'] and item['Tipo'] == 'movie':
+                    if mudanca == item['Titulo'] and item['Tipo'] == 'movie' and ano == item['Ano']:
 
                         flag = True
                         break
 
                 elif tipo == '2':
 
-                    if mudanca == item['Titulo'] and item['Tipo'] == 'series':
+                    if mudanca == item['Titulo'] and item['Tipo'] == 'series' and ano == item['Ano']:
 
                         flag = True
                         break
@@ -1155,15 +1173,23 @@ class Movie:
                 print(' Tipo: ', item['Tipo'].title())
                 print()
                 print('--' * 110)
-                sleep(1)
+                # sleep(1)
 
-            print(' _______________________________________________________________________________')
-            print('|                                                                               |')
-            print('| Digite o nome do filme ou da série que deseja excluir da sua lista de desejos |')    
-            print('|_______________________________________________________________________________|')
-            print('|                                                                               |')
+            print(' ___________________________________________________________________________')
+            print('|                                                                           |')
+            print('| Digite o título que deseja excluir da sua lista de desejos                |')    
+            print('|___________________________________________________________________________|')
+            print('|                                                                           |')
             excluir = input('| >>> ').lower().strip()
-            print('|_______________________________________________________________________________|')
+            print('|___________________________________________________________________________|')
+
+            print(' ___________________________________________________________________________')
+            print('|                                                                           |')
+            print('| Digite o ano do título escolhido                                          |')    
+            print('|___________________________________________________________________________|')
+            print('|                                                                           |')
+            ano = input('| >>> ')
+            print('|___________________________________________________________________________|')
 
             print(' ___________________________________________________________________________')
             print('|                                                                           |')
@@ -1183,27 +1209,17 @@ class Movie:
 
                 if tipo == '1':
 
-                    if excluir == item['Titulo'] and item['Tipo'] == 'movie':
+                    if excluir == item['Titulo'] and ano == item['Ano'] and item['Tipo'] == 'movie':
 
                         flag = True
                         break
 
                 if tipo == '2':
 
-                    if excluir == item['Titulo'] and item['Tipo'] == 'series':
+                    if excluir == item['Titulo'] and ano == item['Ano'] and item['Tipo'] == 'series':
 
                         flag = True
                         break
-
-
-                else:
-
-                    print(' ___________________________________________________________')
-                    print('|                                                           |')
-                    print('|\t\t      OPÇÃO INVÁLIDA                        |')
-                    print('|___________________________________________________________|')
-                    sleep(1)
-
 
             if flag:
 
@@ -1211,13 +1227,13 @@ class Movie:
 
                     if tipo == '1':
 
-                        if excluir != item['Titulo'] or item['Tipo'] == 'series':
+                        if excluir != item['Titulo']  or ano != item['Ano'] or item['Tipo'] == 'series':
 
                             lista.append(item)
 
                     if tipo == '2':
 
-                        if excluir != item['Titulo'] or item['Tipo'] == 'movie':
+                        if excluir != item['Titulo']  or ano != item['Ano'] or item['Tipo'] == 'movie':
 
                             lista.append(item)
 
