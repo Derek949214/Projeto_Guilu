@@ -4,8 +4,35 @@ import os
 
 class Menu:
     
+    def chamando(self):
+
+        while True:
+
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('| 1-Menu                                                    |')
+            print('|___________________________________________________________|')
+            print('|                                                           |')
+            sair = input('| >>> ')
+            print('|___________________________________________________________|')
+
+            if sair == '1':
+
+                os.system('clear')
+                break
+
+            else:
+
+                print(' ___________________________________________________________')
+                print('|                                                           |')
+                print('|\t\t       OPÇÃO INVÁLIDA                       |')
+                print('|___________________________________________________________|')
+                sleep(1)
+
+
     def voltar(self):
 
+        os.system('clear')
         print(' ___________________________________________________________')
         print('|                                                           |')
         print('|\t\t  VOLTANDO PARA O MENU...                   |')
@@ -77,11 +104,12 @@ class Menu:
 
 
         else:
+
             print(' ___________________________________________________________')
             print('|                                                           |')
-            print('|\t\t     OPÇÃO INVÁLIDA                         |')
+            print('|\t\t      OPÇÃO INVÁLIDA                        |')
             print('|___________________________________________________________|')
-            sleep(1)
+
             voltando = Menu()
             voltando.voltar()
             
@@ -99,13 +127,13 @@ class Menu:
         sleep(1)
         print(' ___________________________________________________________')
         print('|                                                           |')
-        print('| 1-Buscar Filmes                                           |')
-        print('| 2-Ver lista de desejos                                    |')
-        print('| 3-Buscar filme na lista de desejos                        |')
-        print('| 4-Alterar filme                                           |')
-        print('| 5-Remover filme                                           |')
-        print('| 6-Sugestão pelo último filme/série adicionado             |')
-        print('| 7-Sugestão pelo histórico                                 |')
+        print('| 1-Buscar Filmes e Séries                                  |')
+        print('| 2-Ver sua lista de desejos                                |')
+        print('| 3-Buscar filmes e séries na lista de desejos              |')
+        print('| 4-Alterar status de filmes ou séries                      |')
+        print('| 5-Remover filmes ou séries                                |')
+        print('| 6-Sugestões pelo último filme/série adicionado(a)         |')
+        print('| 7-Sugestões pelo histórico                                |')
         print('| 0-Sair                                                    |')
         print('|___________________________________________________________|')
         print('|                                                           |')
@@ -131,6 +159,9 @@ class Menu:
 
             menu.escolhas(escolha)
 
+            chamar = Menu()
+            chamar.chamando()
+
             voltando = Menu()
             voltando.voltar()
 
@@ -140,6 +171,9 @@ class Menu:
         elif escolha == '3':
 
             menu.escolhas(escolha)
+
+            chamar = Menu()
+            chamar.chamando()
 
             voltando = Menu()
             voltando.voltar()
@@ -171,6 +205,9 @@ class Menu:
 
             menu.escolhas(escolha)
 
+            chamar = Menu()
+            chamar.chamando()
+
             voltando = Menu()
             voltando.voltar()
 
@@ -180,6 +217,9 @@ class Menu:
         elif escolha == '7':
 
             menu.escolhas(escolha)
+
+            chamar = Menu()
+            chamar.chamando()
 
             voltando = Menu()
             voltando.voltar()
@@ -199,6 +239,7 @@ class Menu:
 
         
 if __name__ == "__main__":
+    
     os.system('clear')
     menu = Menu()
     menu.pedidos()

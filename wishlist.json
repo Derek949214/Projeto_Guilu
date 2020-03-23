@@ -60,6 +60,54 @@
         "Status": "Pendente"
     },
     {
+        "Titulo": "10",
+        "Ano": "1979",
+        "Tempo": "122 min",
+        "Genero": "Comedy, Romance",
+        "Diretor": "Blake Edwards",
+        "Escritor": "Blake Edwards",
+        "Atores": "Dudley Moore, Julie Andrews, Bo Derek, Robert Webber",
+        "Pais": "USA",
+        "Tipo": "movie",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "the approval matrix",
+        "Ano": "2011\u2013",
+        "Tempo": "N/A",
+        "Genero": "Comedy",
+        "Diretor": "N/A",
+        "Escritor": "N/A",
+        "Atores": "Faith Salie",
+        "Pais": "USA",
+        "Tipo": "movie",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "lol: last one laughing",
+        "Ano": "2018\u20132019",
+        "Tempo": "35 min",
+        "Genero": "Reality-TV",
+        "Diretor": "N/A",
+        "Escritor": "N/A",
+        "Atores": "Eugenio Derbez, Mauricio Barrientos, Alex Fern\u00e1ndez, Liliana Arriaga",
+        "Pais": "Mexico",
+        "Tipo": "movie",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "the walking dead",
+        "Ano": "1936",
+        "Tempo": "66 min",
+        "Genero": "Crime, Horror, Sci-Fi",
+        "Diretor": "Michael Curtiz",
+        "Escritor": "Ewart Adamson (screen play), Peter Milne (screen play), Robert Hardy Andrews (screen play), Lillie Hayward (screen play), Ewart Adamson (story), Joseph Fields (story)",
+        "Atores": "Boris Karloff, Ricardo Cortez, Edmund Gwenn, Marguerite Churchill",
+        "Pais": "USA",
+        "Tipo": "movie",
+        "Status": "Assistir mais tarde"
+    },
+    {
         "Titulo": "the walking dead",
         "Ano": "2010\u2013",
         "Tempo": "44 min",
@@ -69,6 +117,6 @@
         "Atores": "Norman Reedus, Melissa McBride, Danai Gurira, Andrew Lincoln",
         "Pais": "USA",
         "Tipo": "series",
-        "Status": "Pendente"
+        "Status": "Assistido"
     }
 ]
