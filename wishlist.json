@@ -92,7 +92,7 @@
         "Escritor": "N/A",
         "Atores": "Eugenio Derbez, Mauricio Barrientos, Alex Fern\u00e1ndez, Liliana Arriaga",
         "Pais": "Mexico",
-        "Tipo": "movie",
+        "Tipo": "series",
         "Status": "Pendente"
     },
     {
@@ -105,7 +105,7 @@
         "Atores": "Boris Karloff, Ricardo Cortez, Edmund Gwenn, Marguerite Churchill",
         "Pais": "USA",
         "Tipo": "movie",
-        "Status": "Assistir mais tarde"
+        "Status": "Assistido"
     },
     {
         "Titulo": "the walking dead",
@@ -117,7 +117,7 @@
         "Atores": "Norman Reedus, Melissa McBride, Danai Gurira, Andrew Lincoln",
         "Pais": "USA",
         "Tipo": "series",
-        "Status": "Assistido"
+        "Status": "Continuar assistindo"
     },
     {
         "Titulo": "lol",

@@ -1,4 +1,4 @@
-from request_test import Movie
+from wishlist import Movie
 from time import sleep
 import os
 
