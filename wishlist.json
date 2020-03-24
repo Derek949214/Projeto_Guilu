@@ -12,73 +12,13 @@
         "Status": "Pendente"
     },
     {
-        "Titulo": "1",
-        "Ano": "2013",
-        "Tempo": "112 min",
-        "Genero": "Documentary, History, Sport",
-        "Diretor": "Paul Crowder",
-        "Escritor": "Mark Monroe",
-        "Atores": "Michael Fassbender, Lewis Hamilton, Niki Lauda, Michael Schumacher",
-        "Pais": "USA",
-        "Tipo": "movie",
-        "Status": "Pendente"
-    },
-    {
-        "Titulo": "4",
-        "Ano": "2004",
-        "Tempo": "126 min",
-        "Genero": "Drama, Mystery, Sci-Fi",
-        "Diretor": "Ilya Khrzhanovskiy",
-        "Escritor": "Vladimir Sorokin",
-        "Atores": "Yuriy Laguta, Marina Vovchenko, Sergey Shnurov, Andrei Kudriashov",
-        "Pais": "Russia, Netherlands",
-        "Tipo": "movie",
-        "Status": "Pendente"
-    },
-    {
-        "Titulo": "lol",
-        "Ano": "2012",
-        "Tempo": "97 min",
-        "Genero": "Comedy, Drama, Romance",
-        "Diretor": "Lisa Azuelos",
-        "Escritor": "Lisa Azuelos (screenplay), Kamir A\u00efnouz (screenplay), Lisa Azuelos (film \"LOL [Laughing Out Loud]\u00ae\"), Nans Delgado (film \"LOL [Laughing Out Loud]\u00ae\")",
-        "Atores": "Jean-Luc Bilodeau, Douglas Booth, Vivian Le Borgne, Bridget Brown",
-        "Pais": "USA",
-        "Tipo": "movie",
-        "Status": "Nao assistido"
-    },
-    {
-        "Titulo": "batman begins",
-        "Ano": "2005",
-        "Tempo": "140 min",
-        "Genero": "Action, Adventure",
-        "Diretor": "Christopher Nolan",
-        "Escritor": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
-        "Atores": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
-        "Pais": "USA, UK",
-        "Tipo": "movie",
-        "Status": "Pendente"
-    },
-    {
-        "Titulo": "10",
-        "Ano": "1979",
-        "Tempo": "122 min",
-        "Genero": "Comedy, Romance",
-        "Diretor": "Blake Edwards",
-        "Escritor": "Blake Edwards",
-        "Atores": "Dudley Moore, Julie Andrews, Bo Derek, Robert Webber",
-        "Pais": "USA",
-        "Tipo": "movie",
-        "Status": "Pendente"
-    },
-    {
-        "Titulo": "the approval matrix",
-        "Ano": "2011\u2013",
-        "Tempo": "N/A",
-        "Genero": "Comedy",
-        "Diretor": "N/A",
-        "Escritor": "N/A",
-        "Atores": "Faith Salie",
+        "Titulo": "the matrix",
+        "Ano": "1999",
+        "Tempo": "136 min",
+        "Genero": "Action, Sci-Fi",
+        "Diretor": "Lana Wachowski, Lilly Wachowski",
+        "Escritor": "Lilly Wachowski, Lana Wachowski",
+        "Atores": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving",
         "Pais": "USA",
         "Tipo": "movie",
         "Status": "Pendente"
@@ -97,18 +37,6 @@
     },
     {
         "Titulo": "the walking dead",
-        "Ano": "1936",
-        "Tempo": "66 min",
-        "Genero": "Crime, Horror, Sci-Fi",
-        "Diretor": "Michael Curtiz",
-        "Escritor": "Ewart Adamson (screen play), Peter Milne (screen play), Robert Hardy Andrews (screen play), Lillie Hayward (screen play), Ewart Adamson (story), Joseph Fields (story)",
-        "Atores": "Boris Karloff, Ricardo Cortez, Edmund Gwenn, Marguerite Churchill",
-        "Pais": "USA",
-        "Tipo": "movie",
-        "Status": "Assistido"
-    },
-    {
-        "Titulo": "the walking dead",
         "Ano": "2010\u2013",
         "Tempo": "44 min",
         "Genero": "Drama, Horror, Thriller",
@@ -117,7 +45,19 @@
         "Atores": "Norman Reedus, Melissa McBride, Danai Gurira, Andrew Lincoln",
         "Pais": "USA",
         "Tipo": "series",
-        "Status": "Continuar assistindo"
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "lol",
+        "Ano": "2012",
+        "Tempo": "97 min",
+        "Genero": "Comedy, Drama, Romance",
+        "Diretor": "Lisa Azuelos",
+        "Escritor": "Lisa Azuelos (screenplay), Kamir A\u00efnouz (screenplay), Lisa Azuelos (film \"LOL [Laughing Out Loud]\u00ae\"), Nans Delgado (film \"LOL [Laughing Out Loud]\u00ae\")",
+        "Atores": "Jean-Luc Bilodeau, Douglas Booth, Vivian Le Borgne, Bridget Brown",
+        "Pais": "USA",
+        "Tipo": "movie",
+        "Status": "Pendente"
     },
     {
         "Titulo": "lol",
@@ -129,6 +69,18 @@
         "Atores": "Joe Swanberg, C. Mason Wells, Kevin Bewersdorf, Brigid Reagan",
         "Pais": "USA",
         "Tipo": "movie",
-        "Status": "Assistido"
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "lol",
+        "Ano": "2010",
+        "Tempo": "5 min",
+        "Genero": "Short, Comedy",
+        "Diretor": "Rachel Donahue",
+        "Escritor": "Rachel Donahue (screenplay)",
+        "Atores": "Lauren Cohen, Connor Donahue, Jake Madsen, Matthew Marvin",
+        "Pais": "USA",
+        "Tipo": "movie",
+        "Status": "Pendente"
     }
 ]
