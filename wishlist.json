@@ -45,7 +45,7 @@
         "Atores": "Norman Reedus, Melissa McBride, Danai Gurira, Andrew Lincoln",
         "Pais": "USA",
         "Tipo": "series",
-        "Status": "Pendente"
+        "Status": "Assistido"
     },
     {
         "Titulo": "lol",
@@ -79,6 +79,18 @@
         "Diretor": "Rachel Donahue",
         "Escritor": "Rachel Donahue (screenplay)",
         "Atores": "Lauren Cohen, Connor Donahue, Jake Madsen, Matthew Marvin",
+        "Pais": "USA",
+        "Tipo": "movie",
+        "Status": "Pendente"
+    },
+    {
+        "Titulo": "spider-man",
+        "Ano": "2002",
+        "Tempo": "121 min",
+        "Genero": "Action, Adventure, Sci-Fi",
+        "Diretor": "Sam Raimi",
+        "Escritor": "Stan Lee (Marvel comic book), Steve Ditko (Marvel comic book), David Koepp (screenplay)",
+        "Atores": "Tobey Maguire, Willem Dafoe, Kirsten Dunst, James Franco",
         "Pais": "USA",
         "Tipo": "movie",
         "Status": "Pendente"

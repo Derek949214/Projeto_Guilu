@@ -62,6 +62,8 @@ class Movie:
                         print('|\t\t    DETALHES DO FILME                       |')
                         print('|___________________________________________________________|')
                         sleep(1)
+                        
+                        print()
 
                         print('--' * 110)
                         print()
@@ -189,6 +191,8 @@ class Movie:
                                 print('|___________________________________________________________|')
 
                                 sleep(1)
+                                print()
+                                
                                 print('--' * 110)
                                 print()
                                 print(' Título: ', response['Title'])
@@ -421,7 +425,6 @@ class Movie:
 
                                     if resumo == '1':
 
-
                                         print(' ___________________________________________________________')
                                         print('|                                                           |')
                                         print('|\t\t        SINOPSE                             |')
@@ -460,7 +463,7 @@ class Movie:
                                 os.system('clear')
                                 print(' ___________________________________________________________')
                                 print('|                                                           |')
-                                print('|      ESTE FILME NÃO ESTÁ NA SUGESTÃO LISTADA ACIMA!       |')
+                                print('|      ESTA SÉRIE NÃO ESTÁ NA SUGESTÃO LISTADA ACIMA!       |')
                                 print('|___________________________________________________________|')
                                 sleep(1.7)
                                 os.system('clear')
@@ -786,7 +789,6 @@ class Movie:
                     return
 
 
-                    
                 elif tipo == '3':
 
                     os.system('clear')
@@ -873,6 +875,7 @@ class Movie:
         
     def busca_desejos(self):
         
+        quantidade = 0
         try:
 
             os.system('clear') 
@@ -945,33 +948,22 @@ class Movie:
                             print('--' * 110)
                             sleep(2)
                             
-                            if titulo == printar[tamanho]['Titulo']:
-
-                                tamanho += 1
-
-                            else:
-                                break
-
-                            if tamanho == len(printar):
-                                break
-
-                            else:
-                                pass
-
                         else:
-                            pass
+                            break
 
-                    # elif titulo != printar[tamanho]['Titulo'] and printar[tamanho]['Tipo'] != 'movie':
+
+                    if titulo != printar[tamanho]['Titulo'] or printar[tamanho]['Tipo'] != 'movie':
                         
-                    #     print(' ___________________________________________________________')
-                    #     print('|                                                           |')
-                    #     print('| \t\t   FILME NÃO ENCONTRADO                     |')
-                    #     print('|___________________________________________________________|')
-                    #     return
+                        tamanho += 1
+                        quantidade += 1
 
+                        if quantidade == len(printar):
 
-                    else:
-                        pass
+                            print(' ___________________________________________________________')
+                            print('|                                                           |')
+                            print('| \t\t   FILME NÃO ENCONTRADO                     |')
+                            print('|___________________________________________________________|')
+                            return
                     
 
                 elif tipo == '2':
@@ -995,28 +987,22 @@ class Movie:
                             print('--' * 110)
                             sleep(2)
                             
-                            if titulo == printar[tamanho]['Titulo']:
 
-                                tamanho += 1
+                        else:
+                            break
 
-                            else:
-                                return
-
-                            if tamanho == len(printar):
-                                return
-
-                            else:
-                                pass
-
-                    # else:
-
-                    #     if titulo != printar[tamanho]['Titulo'] and printar[tamanho]['Tipo'] != 'series':
+                    if titulo != printar[tamanho]['Titulo'] or printar[tamanho]['Tipo'] != 'series':
                                     
-                    #         print(' ___________________________________________________________')
-                    #         print('|                                                           |')
-                    #         print('| \t\t   SÉRIE NÃO ENCONTRADA                     |')
-                    #         print('|___________________________________________________________|')
-                    #         return
+                        tamanho += 1
+                        quantidade += 1
+
+                        if quantidade == len(printar):
+
+                            print(' ___________________________________________________________')
+                            print('|                                                           |')
+                            print('| \t\t   SÉRIE NÃO ENCONTRADA                     |')
+                            print('|___________________________________________________________|')
+                            return
 
       
                 else:
@@ -1089,7 +1075,7 @@ class Movie:
 
             print(' ________________________________________________________________')
             print('|                                                                |')
-            print('| Digite o ano do título escolhido                               |')    
+            print('| Digite o ano do título escolhido                               |')
             print('|________________________________________________________________|')
             print('|                                                                |')
             ano = input('| >>> ').strip()
@@ -1236,7 +1222,6 @@ class Movie:
                     print('|\t\t      OPÇÃO INVÁLIDA                        |')
                     print('|___________________________________________________________|')
 
-
             sleep(2)               
 
         except FileNotFoundError:
@@ -1315,8 +1300,6 @@ class Movie:
             tipo = input('| >>> ').strip()
             print('|___________________________________________________________________________|')
 
-
-                        
             flag = False
             lista = list()
                     
@@ -1364,8 +1347,7 @@ class Movie:
                         else:
                             pass
 
-                    
-
+                
                 with open('wishlist.json', 'w') as arquivo:
                     json.dump(lista, arquivo, indent=4)
 
@@ -1425,6 +1407,11 @@ class Movie:
 
     def sugestao_ultimo(self):
 
+        lista = list()
+
+        with open('sugestao.json') as arquivo:
+            sugestao = json.load(arquivo)
+
         try:
 
             os.system('clear') 
@@ -1437,65 +1424,63 @@ class Movie:
             with open('wishlist.json') as arquivo:
                 desejo = json.load(arquivo)
 
-                tamanho = len(desejo)
-                tamanho -= 1
+                for conteudo in range(-1, len(desejo)):
 
-                titulo = desejo[tamanho]['Titulo']
+                    lista_desejos = desejo[conteudo]['Genero']
+                    lista_desejos = lista_desejos.split()
 
-                chave = '7db9f6c4'
-                response1 = requests.get("http://www.omdbapi.com/?apikey={}&s={}".format(chave,titulo)).json()
+                    for item in sugestao:
 
-                if response1['Response'] == 'False':
-                    
-                    tamanho -= 1
+                        repositorio = item['Genero']
+                        repositorio = repositorio.split()
 
-                    titulo = desejo[tamanho]['Titulo']
-                    
-                    response1 = requests.get("http://www.omdbapi.com/?apikey={}&s={}".format(chave,titulo)).json()
+                        if lista_desejos[0] == repositorio[0]:
 
-                    print('--' * 110)
-                    
-                    for tamanho in range(1, len(response1['Search'])):
+                            dicionario = {
+                            'Titulo': item['Titulo'].lower(),
+                            'Ano': item['Ano'],
+                            'Tempo': item['Tempo'],
+                            'Genero': item['Genero'],
+                            'Diretor': item['Diretor'],
+                            'Escritor': item['Escritor'],
+                            'Atores': item['Atores'],
+                            'Pais': item['Pais'],
+                            'Tipo': item['Tipo'],
+                            }
 
-                        if response1['Search'][tamanho]['Type'] == 'game':
-                            tamanho += 1
-
-                        else:
-                            
-                            print()
-                            print(' Titulo: ', response1['Search'][tamanho]['Title'])
-                            print(' Ano: ', response1['Search'][tamanho]['Year'])
-                            print(' Tipo: ', response1['Search'][tamanho]['Type'])
-                            print()
-                            print('--' * 110)
-                            sleep(1)
-
-                else:
-
-                    print('--' * 110)
-                    
-                    for tamanho in range(1, len(response1['Search'])):
-                        
-                        if response1['Search'][tamanho]['Type'] == 'game':
-
-                            tamanho += 1
+                            lista.append(dicionario)
 
                         else:
-                            
-                            print()
-                            print(' Titulo: ', response1['Search'][tamanho]['Title'])
-                            print(' Ano: ', response1['Search'][tamanho]['Year'])
-                            print(' Tipo: ', response1['Search'][tamanho]['Type'])
-                            print()
-                            print('--' * 110)
-                            sleep(1)
+                            pass
 
-                print(' ___________________________________________________________')
-                print('|                                                           |')
-                print('|\t\t     FIM DAS SUGESTÕES                      |')
-                print('|___________________________________________________________|')
+                    break
 
-                return
+                for item in lista:
+                    
+                    print('--' * 110)
+                    print()
+                    print('Titulo: ', item['Titulo'].title())
+                    print('Ano: ', item['Ano'])
+                    print('Tempo: ', item['Tempo'])
+                    print('Genero: ', item['Genero'])
+                    print('Diretor: ',  item['Diretor'])
+                    print('Escritor: ', item['Escritor'])
+                    print('Atores: ', item['Atores'])
+                    print('Pais: ', item['Pais'])
+                    print('Tipo: ', item['Tipo'])
+                    print()
+                    print('--' * 110)
+                    sleep(1)
+
+            print('--' * 110)
+            print()
+        
+            print(' ___________________________________________________________')
+            print('|                                                           |')
+            print('|\t\t     FIM DAS SUGESTÕES                      |')
+            print('|___________________________________________________________|')
+
+            return
 
 
                 # print(' Titulo: ', desejo[tamanho]['Titulo'])
@@ -1522,56 +1507,100 @@ class Movie:
 
 
     def sugestao_historico(self):
-        
+
+        os.system('clear') 
+        print(' ___________________________________________________________')
+        print('|                                                           |')
+        print('|        SUGESTÕES DE FILMES E SÉRIES PELO  HISTÓRICO       |')
+        print('|___________________________________________________________|')
+        sleep(1)
+
+        print()
+
+        with open('sugestao.json') as arquivo:
+            sugestao = json.load(arquivo)
+
         try:
 
-            quantidade = 0
-
-            os.system('clear') 
-            print(' ___________________________________________________________')
-            print('|                                                           |')
-            print('|       SUGESTÕES DE FILMES E SÉRIES PELO HISTÓRICO         |')
-            print('|___________________________________________________________|')
-            sleep(1)
+            lista = list()
 
             with open('wishlist.json') as arquivo:
                 desejo = json.load(arquivo)
 
+
             for item in desejo:
 
-                titulo = item['Titulo']
+                lista_desejos = item['Genero']
+                lista_desejos = lista_desejos.split()
 
-                chave = '7db9f6c4'
-                response1 = requests.get("http://www.omdbapi.com/?apikey={}&s={}".format(chave,titulo)).json()
+                for conteudo in sugestao:
 
-                if response1['Response'] == 'False':
-                    quantidade  +=1
+                    repositorio = conteudo['Genero']
+                    repositorio = repositorio.split()
 
-                else:
+                    if lista_desejos[0] == repositorio[0]:
 
-                    for tamanho in range(1, len(response1['Search'])):
-                        
-                        if response1['Search'][tamanho]['Type'] == 'game':
-                            tamanho += 1
+                        dicionario = {
+                            'Titulo': conteudo['Titulo'].lower(),
+                            'Ano': conteudo['Ano'],
+                            'Tempo': conteudo['Tempo'],
+                            'Genero': conteudo['Genero'],
+                            'Diretor': conteudo['Diretor'],
+                            'Escritor': conteudo['Escritor'],
+                            'Atores': conteudo['Atores'],
+                            'Pais': conteudo['Pais'],
+                            'Tipo': conteudo['Tipo'],
+                        }
 
-                        else:
+                        lista.append(dicionario)
 
-                            print()
-                            print(' Titulo: ', response1['Search'][tamanho]['Title'])
-                            print(' Ano: ', response1['Search'][tamanho]['Year'])
-                            print(' Tipo: ', response1['Search'][tamanho]['Type'])
-                            print()
-                            print('--' * 110)
-                            sleep(1)
+                    if lista_desejos[0] == 'Comedy' and repositorio[0] == 'Comdedy' and lista_desejos[0] == repositorio[0]:
 
-                            if tamanho == len(response1['Search']):
 
-                                print('Nenhum filme pode ser recomendado')
+                        dicionario = {
+                            'Titulo': conteudo['Titulo'].lower(),
+                            'Ano': conteudo['Ano'],
+                            'Tempo': conteudo['Tempo'],
+                            'Genero': conteudo['Genero'],
+                            'Diretor': conteudo['Diretor'],
+                            'Escritor': conteudo['Escritor'],
+                            'Atores': conteudo['Atores'],
+                            'Pais': conteudo['Pais'],
+                            'Tipo': conteudo['Tipo'],
+                        }
+
+                        lista.append(dicionario)
+
+
+                    else:
+                        pass
+
+            for item in lista:
+
+                print('--' * 110)
+                print()
+                print('Titulo: ', item['Titulo'].title())
+                print('Ano: ', item['Ano'])
+                print('Tempo: ', item['Tempo'])
+                print('Genero: ', item['Genero'])
+                print('Diretor: ',  item['Diretor'])
+                print('Escritor: ', item['Escritor'])
+                print('Atores: ', item['Atores'])
+                print('Pais: ', item['Pais'])
+                print('Tipo: ', item['Tipo'])
+                print()
+                print('--' * 110)
+                sleep(1)
+
+            print('--' * 110)
+            print()
 
             print(' ___________________________________________________________')
             print('|                                                           |')
             print('|\t\t     FIM DAS SUGESTÕES                      |')
             print('|___________________________________________________________|')
+
+            return
 
         except FileNotFoundError:
 

@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "venv_wishlist_filmes/bin/python2.7"
+    "python.pythonPath": "venv_wishlist_filmes/bin/python2.7",
+    "git.ignoreLimitWarning": true
 }
