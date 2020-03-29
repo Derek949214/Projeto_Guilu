@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from web.views import user
+from web.views import user, lista_de_desejos, novo_adicionamento, update, delete
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('user/', user)
+    path('', user, name='url_user'),
+    path('lista/', lista_de_desejos, name='url_desejo'),
+    path('update/<int:pk>/', update, name='url_update'),
+    path('delete/<int:pk>/', delete, name='url_delete'),
+    path('novo/', novo_adicionamento, name='url_novo')
 ]

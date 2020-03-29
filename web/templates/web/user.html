@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>GuiluFlix</title>
 </head>
 <body>
     <h1>Seja Bem-Vindo ao GuiluFlix</h1>
+
+    <p>Agora são: {{ now }}</p>
+
+    <ul>
+        {% for item in adicionados %}
+
+            {% if item == 'Adicionar' %}
+
+                <li><a href='{% url "url_novo" %}'>Adicionar</a></li>
+
+            {% endif %}
+
+            {% if item == 'Ver Lista de Desejos' %}
+
+                <li><a href='/lista/'>Ver Sua Lista De Desejos </li>
+
+            {% endif %}
+
+        {% endfor %}
+
+    </ul>
 </body>
 </html>
