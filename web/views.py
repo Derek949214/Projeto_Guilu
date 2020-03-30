@@ -2,21 +2,25 @@ from django.shortcuts import render, redirect
 from .models import Adicionar
 from .form import AdicionarForm
 from datetime import datetime
+import requests, json
 
 
 def user(request):
 
     data = dict()
-    data['adicionados'] = ['Adicionar', 'Ver Lista de Desejos', 'Alterar Status', 'Remover Conteúdo da Lista de Desejos']
-    data['adicionados'].append( Adicionar.objects.all())
+    data['adicionados'] = ['Buscar Filmes e Séries', 'Ver Lista de Desejos', 'Alterar Status', 'Remover Conteúdo da Lista de Desejos']
 
     data['now'] = datetime.now()
 
-    if data['adicionados'] == 'Alterar Status':
-
-        return redirect('url_update')
-
     return render(request, 'web/user.html', data)
+
+def busca(request):
+
+    # pesquisa = AdicionarForm(request.POST or None)
+
+    response1 = requests.get("http://www.omdbapi.com/?apikey=7db9f6c4&s=matrix&type=movie&plot=full").json()
+
+    return render(request, 'web/busca.html', response1)
 
 def lista_de_desejos(request):
 

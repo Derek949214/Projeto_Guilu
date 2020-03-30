@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Busca de Filmes e Séries</title>
+</head>
+<body>
+
+    {% block content %}
+
+        {% if pesquisa %}
+
+            {{ form.nome }}
+
+            <button type="search"> </button>
+
+        {% endif %}
+
+        <h2>OMDB API</h2>
+
+        {% for item in Search %}
+
+            <p>Titulo: <strong>{{ item.Title }}</strong> -- Ano: <strong>{{ item.Year }}</strong> -- Tipo: {{ item.Type }} </p>
+
+        {% endfor %}
+                
+    {% endblock %}
+
+</body>
+</html>
