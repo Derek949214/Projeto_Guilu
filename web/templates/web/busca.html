@@ -10,21 +10,50 @@
 
     {% block content %}
 
-        {% if pesquisa %}
+        <h2>OMDB API</h2>
+        <br>
+        <button><a href="{% url 'url_user' %}">Voltar</a></button>
+        <br>
+        <br>
 
-            {{ form.nome }}
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="." method="GET" class="form-inline">
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Titulo que deseja buscar">
+                    <input type="text" id="search" name="tipo" class="form-control" placeholder="Filme ou Série">
+                    <input type="submit" class="btn btn-primary" style="margin-left: 10px;" value="Pesquisar">
+                </form>
+            </div>
+        </div>
 
-            <button type="search"> </button>
+        <br>
+
+        {% if Response == 'False' %}
+
+            <br>
+            <strong>O Título Pesquisado Não Existe!!</strong>
+
+        {% else %}
+
+            {% if Type != 'game' %}
+
+                <li><a href="{% url 'url_novo' %}">Titulo: <strong>{{ Title }}</strong> -- Ano: <strong>{{ Year }}</strong> -- Tipo: <strong>{{ Type }}</strong></a> </li>
+                <br>
+
+            {% endif %}
+
+            {% for item in Search %}
+
+                {% if item.Type != 'game' %}
+
+                    <li>Titulo: <strong>{{ item.Title }}</strong> -- Ano: <strong>{{ item.Year }}</strong> -- Tipo: <strong>{{ item.Type }}</strong> </li>
+                    <br>
+
+                {% endif %}
+
+            {% endfor %}
 
         {% endif %}
-
-        <h2>OMDB API</h2>
-
-        {% for item in Search %}
-
-            <p>Titulo: <strong>{{ item.Title }}</strong> -- Ano: <strong>{{ item.Year }}</strong> -- Tipo: {{ item.Type }} </p>
-
-        {% endfor %}
                 
     {% endblock %}
 

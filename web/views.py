@@ -8,7 +8,7 @@ import requests, json
 def user(request):
 
     data = dict()
-    data['adicionados'] = ['Buscar Filmes e Séries', 'Ver Lista de Desejos', 'Alterar Status', 'Remover Conteúdo da Lista de Desejos']
+    data['adicionados'] = ['Buscar Filmes e Séries', 'Ver Lista de Desejos']
 
     data['now'] = datetime.now()
 
@@ -16,11 +16,51 @@ def user(request):
 
 def busca(request):
 
-    # pesquisa = AdicionarForm(request.POST or None)
+    search = request.GET.get('search')
+    tipo = request.GET.get('tipo').lower()
 
-    response1 = requests.get("http://www.omdbapi.com/?apikey=7db9f6c4&s=matrix&type=movie&plot=full").json()
+    model = Adicionar
+  
+    if tipo == 'filme':
 
-    return render(request, 'web/busca.html', response1)
+        tipo = 'movie'
+
+    elif tipo == 'série':
+
+        tipo = 'series'
+
+    response1 = requests.get("http://www.omdbapi.com/?apikey=7db9f6c4&s={}&type={}&plot=full".format(search, tipo)).json()
+    
+    # for tamanho in range(0, len(response1['Search'])):
+
+    #     model.nome = response1['Search'][tamanho]['Title']
+    #     model.ano = response1['Search'][tamanho]['Year']
+    #     model.tipo = response1['Search'][tamanho]['Type']
+
+    if response1['Response'] == 'False':
+
+        response = requests.get("http://www.omdbapi.com/?apikey=7db9f6c4&t={}&type={}&plot=full".format(search, tipo)).json()
+
+        # for tamanho in range(0, len(response1['Search'])):
+
+        #     model.nome = response['Title']
+        #     model.ano = response['Year']
+        #     model.tipo = response['Type']
+
+        if response['Response'] == 'False':
+
+            response = requests.get("http://www.omdbapi.com/?apikey=7db9f6c4&t={}&type={}&plot=full".format(search, tipo)).json()
+            
+            return render(request, 'web/busca.html', response)
+
+        else:
+
+            return render(request, 'web/busca.html', response)
+
+    else:
+
+        return render(request, 'web/busca.html', response1)
+
 
 def lista_de_desejos(request):
 

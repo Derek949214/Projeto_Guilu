@@ -23,7 +23,7 @@ urlpatterns = [
     path('', user, name='url_user'),
     path('busca/', busca, name='url_busca'),
     path('lista/', lista_de_desejos, name='url_desejo'),
-    path('update/<int:pk>/', update, name='url_update'),
+    path('update/<int:pk>/', update,  name='url_update'),
     path('delete/<int:pk>/', delete, name='url_delete'),
     path('novo/', novo_adicionamento, name='url_novo')
 ]
